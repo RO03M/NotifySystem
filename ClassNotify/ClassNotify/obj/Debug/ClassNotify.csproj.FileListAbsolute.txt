@@ -1,0 +1,7 @@
+C:\Users\gabri\Documents\Projetos\ClassNotify\ClassNotify\bin\Debug\ClassNotify.exe.config
+C:\Users\gabri\Documents\Projetos\ClassNotify\ClassNotify\bin\Debug\ClassNotify.exe
+C:\Users\gabri\Documents\Projetos\ClassNotify\ClassNotify\bin\Debug\ClassNotify.pdb
+C:\Users\gabri\Documents\Projetos\ClassNotify\ClassNotify\obj\Debug\ClassNotify.csprojAssemblyReference.cache
+C:\Users\gabri\Documents\Projetos\ClassNotify\ClassNotify\obj\Debug\ClassNotify.csproj.CoreCompileInputs.cache
+C:\Users\gabri\Documents\Projetos\ClassNotify\ClassNotify\obj\Debug\ClassNotify.exe
+C:\Users\gabri\Documents\Projetos\ClassNotify\ClassNotify\obj\Debug\ClassNotify.pdb

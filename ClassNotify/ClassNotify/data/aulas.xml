@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<semana>
+	<dia nome="Segunda">
+		<aula time="10:00">Comunicação Expressa</aula>
+		<aula time="">Comunicação Expressa</aula>
+		<aula time="">Administração Geral</aula>
+		<aula time="">Administração Geral</aula>
+	</dia>
+	<dia nome="Terca">
+		<aula time="10:00">Matemática Discreta</aula>
+		<aula time="">Matemática Discreta</aula>
+		<aula time="">Matemática Discreta</aula>
+		<aula time="">Matemática Discreta</aula>
+	</dia>
+	<dia nome="Quarta">
+		<aula time="10:00">Espanhol I</aula>
+		<aula time="">Espanhol I</aula>
+		<aula time="">Administração Geral</aula>
+		<aula time="">Administração Geral</aula>
+	</dia>
+	<dia nome="Quinta">
+		<aula time="10:00">Comunicação Expressa</aula>
+		<aula time="">Comunicação Expressa</aula>
+		<aula time="">Ética e Lógistica</aula>
+		<aula time="">Ética e Lógistica</aula>
+	</dia>
+	<dia nome="Sexta">
+		<aula time="10:00">Informática para Negócios</aula>
+		<aula time="">Informática para Negócios</aula>
+		<aula time="">Informática para Negócios</aula>
+		<aula time="">Informática para Negócios</aula>
+	</dia>
+	<dia nome="Sabado">
+		<aula time="10:00">M.P.C.T??</aula>
+		<aula time="">M.P.C.T??</aula>
+		<aula time="">Inglês I</aula>
+		<aula time="">Inglês I</aula>
+	</dia>
+	
+</semana>
+
