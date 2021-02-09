@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,6 +7,7 @@ using System.Drawing;
 using System.Windows.Forms;
 using System.Xml;
 using System.Runtime.InteropServices;
+using Microsoft.Win32;
 
 namespace ClassNotify {
     class Program {
@@ -19,13 +20,17 @@ namespace ClassNotify {
         [DllImport("user32.dll")]
         static extern bool ShowWindow(IntPtr itp, int show);
 
-        const int CONSOLE_HIDE = 0;
-        const int CONSOLE_SHOW = 1;
+        public const int CONSOLE_HIDE = 0;
+        public const int CONSOLE_SHOW = 1;
 
         #endregion
 
-        public Form mainForm = new Form();
         public bool isRunning = true;
+        public IntPtr handle = GetConsoleWindow();
+        public Form mainForm = new Form();
+        //this just represents where the hell the windows looks up to the startup programs
+        public RegistryKey registryKey = Registry.CurrentUser.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true);
+        NotifyIcon tray;
 
         private string[,] classes;
         private TimeSpan[] times = new TimeSpan[4] { 
@@ -36,27 +41,33 @@ namespace ClassNotify {
         };
 
         public Program() {
+            Console.WriteLine("Welcome to the ClassNotify v1");
+            if (registryKey.GetValue("ClassNotify") == null) {
+                registryKey.SetValue("ClassNotify", Application.ExecutablePath);
+            }
+            Thread.Sleep(2000);
+            ShowWindow(handle, CONSOLE_HIDE);
             Application.EnableVisualStyles();
             mainForm.WindowState = FormWindowState.Minimized;
             mainForm.ShowInTaskbar = false;
-            NotifyIcon tray = new NotifyIcon();
+            tray = new NotifyIcon();
             tray.Icon = SystemIcons.Question;
             tray.Visible = true;
-            tray.Text = "vai se fuder";
+            tray.Text = "ClassNotify v1";
 
             LoadClasses();
             Thread clock = new Thread(ClockTracker);
             clock.Start();
+            Notify("Bem vindo", "Olá vádia, já iniciei nessa merda, cê não larga desse computador puta que pariu");
             Application.Run(mainForm);
         }
 
         #region Notification Systems
 
         public void Notify(string title, string message) {
-            NotifyIcon notify = new NotifyIcon();
-            notify.Icon = SystemIcons.Exclamation;
-            notify.Visible = true;
-            notify.ShowBalloonTip(10000, title, message, ToolTipIcon.Info);
+            tray.Icon = SystemIcons.Exclamation;
+            tray.Visible = true;
+            tray.ShowBalloonTip(10000, title, message, ToolTipIcon.Info);
         }
 
         public void ClockTracker() {
@@ -113,8 +124,6 @@ namespace ClassNotify {
         #endregion
 
         static void Main(string[] args) {
-            var handle = GetConsoleWindow();
-            ShowWindow(handle, CONSOLE_HIDE);
             new Program();
         }
     }
